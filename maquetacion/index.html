@@ -55,10 +55,76 @@
         </div>
     </header>
 
-    <div id="slider" class="slider-big slider-small">
+    <div id="slider" class="slider-big">
         <h1>Bienvenido/a a mi página web</h1>
         <a href="#" class="btn-white">Ir al blog</a>
     </div>
+
+    <div class="center">
+        <section id="content">
+            <h2>Últimos artículos</h2>
+
+            <script type="text/javascript">
+
+                window.addEventListener("load", function(){
+                    var template = document.getElementById("article-template");
+                    
+                    var articles = document.getElementById("articles")
+                    for (i=1; i<=5; i++){
+                        var clonado = template.cloneNode(true);
+                        clonado.removeAttribute("id");
+                        var h2 = clonado.getElementsByTagName("h2")[0];
+                        h2.innerHTML = h2.textContent + ' ' + i;
+                        articles.appendChild(clonado);
+                    }
+                })
+                
+            </script>
+            <!--Listado articulos-->
+
+            <div id="articles">
+                <article class="article-item" id="article-template">
+                    <div class="image-wrap">
+                        <img src="assets/img/montaña.jpg" alt="Montaña">
+                    </div>
+
+                    <h2>La edad y el trabajo</h2>
+                    <span class="date">
+                        Hace 5 minutos
+                    </span>
+
+                </article>
+                <a href="#">Leer más</a>
+            </div>
+        </section>
+
+        <aside id="sidebar">
+            <div id="nav-blog" class="sidebar-item">
+                <h3>Puedes hacer esto</h3>
+                <a href="#" class="btn btn-success">Crear artículo</a>
+            </div>
+            
+            <div id="nav-blog" class="sidebar-item">
+                <h3>Buscador</h3>
+                <a href="#" class="buscador">Encuentra el artículo que buscas</a>
+                <form>
+                    <input type="text" name="search"/>
+                    <input type="Submit" name="submit" value="Buscar" class="btn"/>
+                </form>
+            </div>
+        </aside>
+
+        <div class="clearfix"></div>
+
+    </div>
+
+    <footer id="footer">
+        <div class="center">
+            <p>
+                &copy;Jbortweb
+            </p>
+        </div>
+    </footer>
      
     
 </body>
